@@ -17,7 +17,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-@EnableMethodSecurity(securedEnabled = true, jsr250Enabled = true)
+@EnableMethodSecurity(securedEnabled = true)
 public class ApplicationSecurityConfig
 {
     // deprecated
@@ -37,7 +37,7 @@ public class ApplicationSecurityConfig
     protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http
                 .authorizeHttpRequests()
-                .requestMatchers("/","/index.html")
+                .requestMatchers("/","/index")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
